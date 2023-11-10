@@ -1,0 +1,50 @@
+dnf install mdadm
+fdisk /dev/nvme0n4
+n
+p
+1
+enter
+enter
+t
+fd
+p
+w
+fdisk /dev/nvme0n5
+n
+p
+1
+enter
+enter
+t
+fd
+p
+w
+fdisk /dev/nvme0n6
+n
+p
+1
+enter
+enter
+t
+fd
+p
+w
+mdadm --create /dev/md0 --level=5 --raid-devices=3 /dev/nvme0n4p1 /dev/nvme0n5p1 /dev/nvme0n6p1
+mkfs.ext4 /dev/md0
+mkdir /mnt/raid5
+mount /dev/md0 /mnt/raid5/
+ls -l /mnt/raid5/
+touch /mnt/raid5/raid5_tecmint_{1..5}
+ls -l /mnt/raid5/
+echo "tecmint raid setups" > /mnt/raid5/raid5_tecmint_1
+cat /mnt/raid5/raid5_tecmint_1
+cat /proc/mdstat
+nano / etc/fstab
+/dev/md0 /mnt/raid5 ext4 defaults 0 0
+mount -av
+mdadm --detail --scan --verbose >> /etc/mdadm.conf
+
+
+
+
+

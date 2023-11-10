@@ -1,0 +1,95 @@
+systemctl status sshd
+crear usurio rueba
+
+useradd prueba
+passwd prueba 
+pruebasu -
+
+
+dnf install net-tools -y
+if config
+vi /etc/ssh/sshd_config
+esc : se nu
+
+
+en la linea 44 aplastar la I
+AllowUsers prueba (nombre de usuario
+para guardar 
+esc:wq!  (salir guardando
+
+exi
+systemctl restart sshd
+
+
+prueba su-
+visudo
+
+root    ALL = (ALL)  ALL
+prueba1 ALL = (ALL)  /usr/bin/tar,/usr/sbin/useradd,/usr/bin/top
+esc:wq!
+
+
+}
+} crear nano 
+sudo dnf
+sudo which tar
+
+which useradd (para saber en donde 
+sudo dnf install tar
+
+
+sudo nano /etc/ssh/sshd
+AlloweUsers prueba Prueba1 prueba2
+}controg
+sudo systemctl restart sshd
+
+
+borrar usuarios
+sudo userdel prueba2 (no permite)
+sudo top
+control c
+ps -aux | grep ssh
+
+cambiar la clave a prueba1
+sudo passwd prueba1
+
+
+crear otro usuario para no ocupar el sudo
+
+
+1. systemctl status sshd 
+2. vi /etc/ssh/sshd_config
+linea 44
+AllowUsers prueba1 prueba2 prueba3
+:wq
+
+3. which chmod
+   which systemctl 
+   which chown
+   whcih userdel
+
+4. visudo 
+linea 100
+
+prueba3   ALL=(ALL)   NOPASSWD: (aqui entra los comando)
+:wq
+
+(prueba3) 
+1. nano ~/bashrc
+(al final)
+
+alias systemctl="sudo systemctl"
+alis  chmod= "sudo chmod"
+
+(guardar)
+
+
+
+
+
+
+
+
+
+
+

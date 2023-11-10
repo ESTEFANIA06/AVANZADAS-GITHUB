@@ -1,0 +1,54 @@
+docker run -it --name apache ubuntu /bin/bash
+apt-get update
+apt-get install apache2 -y
+
+service apache2 status
+service apache2 start
+
+
+
+crea imagen fuera en root server
+
+docker -a
+docker commit -m "Install apache" -a "USER1" (numeros) apache/ubuntu:v1
+
+docker images (ver imagen genrada)
+docker run -d --name apache/ubuntu:v1 /usr/sbin/apache2ctl -D FOREGROUND (genera contenedor en background y que el servicio no se detenga
+
+docker ps  (-d segundo plano
+docker --help
+docker exec -it server /bin/sh  (ejecuta comando en la terminal)
+top
+
+
+apt-get install curl
+curl http://127.0.0.1
+exit
+docker stop server
+docker ps -a
+docker rm server
+docker ps -a
+
+
+mapeo de puertos 
+docker run -d -p 8000:80 --name apache/ubuntu:v1 /usr/sbin/apache2ctl -D FOREGROUND
+docker ps
+ip add (tarjeta de red docker 0)
+
+docker exec -it server /bin/sh
+apt-get install nettools
+
+vamos al navegador 
+http://172.17.0.1:8000
+
+
+
+
+
+tarea 
+
+
+
+
+
+

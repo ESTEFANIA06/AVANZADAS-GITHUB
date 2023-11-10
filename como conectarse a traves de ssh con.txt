@@ -1,0 +1,44 @@
+como conectarse a traves de ssh con una clave publuca o privada
+
+ssh-keygen
+(enter)
+(elegir una frase) comunicacion
+ls -l .ssh (verifica la clave publica y privada)
+cat .ssh/id_rsa
+cd .ssh
+ls -la (muestraarchivos)
+cat id_rsa.pub >> authorized_keys
+chmod 775 authorized_keys
+chmod 777 id_rsa
+sudo nano /etc/ssh/sshd_config
+passwordAutentication yes
+sudo systemctl restart sshd
+
+
+
+
+powershell windows
+ssh -i "C:\Users\HP\Documents\TELECOM 8A\COM AVANZADAS\id_rsa" prueba5@192.168.9.133
+
+scp prueba5@192.168.9.133:/home/prueba5/.ssh/id_rsa "C:\Users\HP\Documents\TELECOM 8A\COM AVANZADAS"
+
+
+nano
+passwordAutentication no
+sudo systemctl restart sshd
+
+
+
+putygen
+load         seleccionas a frase y la rsa
+save private key
+3072
+
+
+gpasswd -a prueba5 wheel
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+qur la configuracion no se pierda 
+lsblk (aparece los discos )
+
+alma linux2
+-----------------------------------------------------
+fdisk /dev/nvme0n2 (disco2)
+n
+p
+1
+enter
+t
+FD
+p
+w
+
+fdisk /dev/nvme0n3 (disco3)
+n
+p
+1
+enter
+t
+FD
+p
+w
+
+fdisk -l
+
+
+herramienta para administrar y modificar los raid
+dnf install -y mdadm
+mdadm -C /dev/md0 -l 1 -n 2 /dev/nvme0n2p1 /dev/nvme0n3p1
+(n cantidad de discos que vas a utilizar
+l nivel de raaid)
+cat /proc/mdstat
+lsblk
+
+como dar formato al raid disco que se genera
+mkfs.ext4 /dev/md0
+mount /dev/md0 /mnt/
+tar zcf /mnt/backup-etc.tar.gz /etc/
+lsblk
+mdadm -f /dev/md0 /dev/nvme0n3p1 (hacer que falle el disco)
+cat /proc/mdstat
+
+remver el disco y poner otro 
+mdadm -r /dev/md0 /dev/nvme0n3p1
+
+
+tar zcf /mnt/backup2-etc.tar.gz /etc/
+
+sfdisk -d /dev/nvme0n2p1 | sfdisk -d /dev/nvme0n3p1
+añadir el nuevo diso al raid
+mdadm -a /dev/md0 /dev/nvme0n3p1
+cat /proc/mdstat
+ls /mnt
+
+
+
+como desmontar el raid
+umount /dev/md0
+mdadm --stop /dev/md0
+mdadm --zero-superblock /dev/nvme0n2p1
+mdadm --zero-superblock /dev/nvme0n3p1
+cat /proc/mdstat 
+
+
+
+
+
+
+alma linux3< raid
+cat /proc/mdstat (verificar el estado del raid)
+
+--------------------------------------------------------------
+Aumentar espacio en el disco
+lslbk
+fdisk /dev/nvme0n3 (disco que querramos formatear)
+n
+p
+1
+enter
+t
+w
+
+fdisk -l
+init 6
+pvcreate /dev/nvme0n2p1
+vgdisplay
+vgextend almalinux /dev/nvme0n2p1
+vgdisplay almalinux | grep "Free"
+vgdisplay 
+lvextend -L+20G /dev/almalinux/var
+
+-----------------------------------------------------------
+
+trabajo final
+investigacion sobre open stack
+levantgar la infraestructura
+contenedores a nivel de la nube
+aprender la herramenta open stack
+hacer todo un servidor cloud 
+documento y como funciona en la vida real
+
+
+
+
+

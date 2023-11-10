@@ -1,0 +1,48 @@
+sistema de control de versiones 
+ingresar en git bash
+git config --global user.name "ESTEFANIA"
+git config --global user.email "pilamungaestefania3bi@gmail.com"
+git config --list
+pwd
+mkdir carpetagit
+cd carpetagit
+git init
+ls -a
+git status
+echo "hoy es la colada morada" > archivo1.txt
+git status
+git add archivo1.txt
+git status
+git commit -m "este archivo trata de la colada morada"
+git log 
+
+aqui se modifica el archivo 1
+echo "por favor no faltar a la colada morada" > archivo1.txt
+git status
+git add archivo1.txt 
+git commit -m "este archivo trata de la colada morada con recordatorio"
+git log 
+
+git branch
+generar una nueva rama
+git branch rama2
+git checkout rama2
+echo "hoy es miercoles ">> archivo1.txt
+cat archivo1.txt
+git add archivo1.txt
+git status
+git commit -m "recuerda que dia es hoy "
+git log 
+
+git branch master
+git merge rama2
+git branch -d rama2
+cat archivo1.txt
+
+git branch test
+git checkout test
+git branch
+cat archivo1.txt
+sed -i 's/miercoles/jueves'
+
+

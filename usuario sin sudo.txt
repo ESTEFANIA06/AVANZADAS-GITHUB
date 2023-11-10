@@ -1,0 +1,18 @@
+sudo useradd -m prueba5
+sudo usermod -s /bin/bash prueba5
+
+
+sudo chown prueba5:prueba5 /usr/sbin/userdel
+sudo chmod 4550 /usr/sbin/userdel
+
+sudo chown prueba5:prueba5 /bin/chmod
+sudo chmod 4550 /bin/chmod
+
+sudo chown prueba5:prueba5 /bin/chown
+sudo chmod 4550 /bin/chown
+
+sudo chown prueba5:prueba5 /sbin/ifconfig
+sudo chmod 4550 /sbin/ifconfig
+
+sudo chown prueba5:prueba5 /bin/systemctl
+sudo chmod 4550 /bin/systemctl

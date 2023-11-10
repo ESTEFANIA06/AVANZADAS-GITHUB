@@ -1,0 +1,11 @@
+git init
+git status
+git add .
+git commit -m "Se esta subiendo el Proyecto al repositorio.1"
+git commit -m "Primera prueba de subida"
+git config --global user.name "ESTEFANIA06"
+git config --global user.email "pilamungaestefania3bi@gmail.com"
+
+git branch  -M main
+git remote add origin https://github.com/ESTEFANIA06/AVANZADAS-GITHUB.git
+git push -u origin main
